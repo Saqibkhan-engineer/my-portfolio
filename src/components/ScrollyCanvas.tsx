@@ -37,7 +37,7 @@ export default function ScrollyCanvas({ heroRef }: { heroRef: React.RefObject<HT
     const ctx = canvas?.getContext('2d');
     
     if (canvas && ctx && images.length > 0) {
-      let targetIndex = Math.floor(index);
+      const targetIndex = Math.floor(index);
       let img = images[targetIndex];
       
       // If the exact frame isn't loaded yet, find the closest previous loaded frame
