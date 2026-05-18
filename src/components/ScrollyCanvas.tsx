@@ -7,7 +7,7 @@ export default function ScrollyCanvas({ heroRef }: { heroRef: React.RefObject<HT
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [images, setImages] = useState<HTMLImageElement[]>([]);
   const [loadedCount, setLoadedCount] = useState(0);
-  const totalFrames = 120;
+  const totalFrames = 136;
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -22,7 +22,7 @@ export default function ScrollyCanvas({ heroRef }: { heroRef: React.RefObject<HT
     for (let i = 0; i < totalFrames; i++) {
       const img = new Image();
       const frameNum = i.toString().padStart(3, '0');
-      img.src = `/sequence/frame_${frameNum}_delay-0.058s.webp`;
+      img.src = `/sequence/frame_${frameNum}_delay-0.071s.webp`;
       img.onload = () => {
         loaded++;
         setLoadedCount(loaded);
@@ -41,16 +41,16 @@ export default function ScrollyCanvas({ heroRef }: { heroRef: React.RefObject<HT
       let img = images[targetIndex];
       
       // If the exact frame isn't loaded yet, find the closest previous loaded frame
-      if (!img || !img.complete) {
+      if (!img || !img.complete || img.naturalWidth === 0) {
         for (let i = targetIndex; i >= 0; i--) {
-          if (images[i] && images[i].complete) {
+          if (images[i] && images[i].complete && images[i].naturalWidth > 0) {
             img = images[i];
             break;
           }
         }
       }
 
-      if (img && img.complete) {
+      if (img && img.complete && img.naturalWidth > 0) {
         const canvasAspect = canvas.width / canvas.height;
         const imgAspect = img.width / img.height;
         let drawWidth = canvas.width;
