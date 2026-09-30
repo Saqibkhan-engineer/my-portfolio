@@ -1,29 +1,42 @@
-'use client';
-import { useRef } from 'react';
-import ScrollyCanvas from '@/components/ScrollyCanvas';
-import Overlay from '@/components/Overlay';
-import TagScroll from '@/components/TagScroll';
-import AboutMeSplit from '@/components/AboutMeSplit';
-import ServicesGrid from '@/components/ServicesGrid';
-import JourneyTimeline from '@/components/JourneyTimeline';
-import Services from '@/components/Services';
-import Footer from '@/components/Footer';
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Skills from "@/components/Skills";
+import Certifications from "@/components/Certifications";
+import Projects from "@/components/Projects";
+import Contact from "@/components/Contact";
 
 export default function Home() {
-  const heroRef = useRef<HTMLDivElement>(null);
-
   return (
-    <main className="bg-[#0d0d0d] text-white min-h-screen font-sans">
-      <div ref={heroRef} style={{ position: 'relative', height: '500vh' }}>
-        <ScrollyCanvas heroRef={heroRef} />
-        <Overlay heroRef={heroRef} />
-      </div>
-      <TagScroll />
-      <AboutMeSplit />
-      <ServicesGrid />
-      <JourneyTimeline />
-      <Services />
-      <Footer />
+    <main className="relative min-h-screen bg-bg">
+      {/* ─── Navigation ─────────────────────────────────── */}
+      <Navbar />
+
+      {/* ─── Phase 1: Hero ──────────────────────────────── */}
+      <Hero />
+
+      {/* ─── Divider ────────────────────────────────────── */}
+      <hr className="hr-gradient max-w-7xl mx-auto" />
+
+      {/* ─── Phase 2: Skills ────────────────────────────── */}
+      <Skills />
+
+      {/* ─── Divider ────────────────────────────────────── */}
+      <hr className="hr-gradient max-w-7xl mx-auto" />
+
+      {/* ─── Phase 3: Certifications ────────────────────── */}
+      <Certifications />
+
+      {/* ─── Divider ────────────────────────────────────── */}
+      <hr className="hr-gradient max-w-7xl mx-auto" />
+
+      {/* ─── Phase 4: Projects ──────────────────────────── */}
+      <Projects />
+
+      {/* ─── Divider ────────────────────────────────────── */}
+      <hr className="hr-gradient max-w-7xl mx-auto" />
+
+      {/* ─── Phase 5: Contact + Footer ──────────────────── */}
+      <Contact />
     </main>
   );
 }

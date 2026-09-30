@@ -1,15 +1,29 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-plus-jakarta-sans",
-});
-
 export const metadata: Metadata = {
-  title: "Muhammad Saqib | Data Analyst & Business Intelligence Specialist",
-  description: "Portfolio of Muhammad Saqib, Data Analyst & Business Intelligence Specialist",
+  title: "Muhammad Saqib — Software Engineer & Data Analyst",
+  description:
+    "Portfolio of Muhammad Saqib — Software Engineer, Data Analyst, Business Intelligence expert, and ML & AI Automation specialist. Explore projects, skills, and certifications.",
+  keywords: [
+    "Muhammad Saqib",
+    "Software Engineer",
+    "Data Analyst",
+    "Business Intelligence",
+    "Machine Learning",
+    "AI Automation",
+    "Power BI",
+    "Python",
+    "Next.js",
+    "Portfolio",
+  ],
+  authors: [{ name: "Muhammad Saqib" }],
+  openGraph: {
+    title: "Muhammad Saqib — Software Engineer & Data Analyst",
+    description:
+      "Full-stack portfolio showcasing expertise in software engineering, data analytics, BI, and AI automation.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -18,8 +32,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${plusJakartaSans.className} bg-[#0d0d0d] text-white antialiased`}>
+    <html lang="en" className="dark">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="bg-bg text-text-primary font-sans antialiased">
         {children}
       </body>
     </html>
